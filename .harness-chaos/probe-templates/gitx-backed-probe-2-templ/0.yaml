@@ -4,26 +4,26 @@ identity: gitx-backed-probe-2-templ
 infrastructureType: Kubernetes
 inputs: null
 kind: ProbeTemplate
-name: gitx-backed-probe-2-templ
+name: gitx-backed-probe-2-templ-updated
 probeProperties:
   httpProbe:
     method:
       get:
-        criteria: ==
-        responseCode: "200"
+        criteria: contains
+        responseBody: 200 OK
     tlsConfig:
       caFile: ""
       certFile: ""
+      insecureSkipVerify: true
       keyFile: ""
     url: https://www.google.com
 runProperties:
-  attempt: 1
+  attempt: 3
   initialDelay: 5s
   interval: 2s
   pollingInterval: 30s
-  stopOnFailure: true
-  timeout: 10s
-  verbosity: debug
+  timeout: 30s
+  verbosity: info
 tags: []
 type: httpProbe
 variables: []
