@@ -1,0 +1,35 @@
+apiVersion: chaos.harness.io/v1
+description: ""
+identity: gitx-backed-container-probe-mcm
+infrastructureType: Kubernetes
+inputs: null
+kind: ProbeTemplate
+name: gitx-backed-container-probe-mcm
+probeProperties:
+  containerProbe:
+    args: echo "Hello World"
+    command:
+    - /bin/sh
+    - -c
+    comparator:
+      criteria: matches
+      type: string
+      value: Hello World
+    env: []
+    hostIPC: false
+    hostNetwork: false
+    hostPID: false
+    image: bitnami/kubectl:latest
+    imagePullPolicy: IfNotPresent
+    namespace: ""
+    serviceAccountName: default
+runProperties:
+  attempt: 1
+  initialDelay: 5s
+  interval: 2s
+  pollingInterval: 30s
+  timeout: 10s
+  verbosity: debug
+tags: []
+type: containerProbe
+variables: []
