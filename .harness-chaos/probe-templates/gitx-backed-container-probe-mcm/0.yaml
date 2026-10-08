@@ -1,5 +1,5 @@
 apiVersion: chaos.harness.io/v1
-description: ""
+description: added description
 identity: gitx-backed-container-probe-mcm
 infrastructureType: Kubernetes
 inputs: null
@@ -7,7 +7,8 @@ kind: ProbeTemplate
 name: gitx-backed-container-probe-mcm
 probeProperties:
   containerProbe:
-    args: echo "Hello World"
+    affinity: {}
+    args: echo "GitX Backed Hello World"
     command:
     - /bin/sh
     - -c
@@ -21,15 +22,17 @@ probeProperties:
     hostPID: false
     image: bitnami/kubectl:latest
     imagePullPolicy: IfNotPresent
-    namespace: ""
+    namespace: hce
     serviceAccountName: default
 runProperties:
-  attempt: 1
-  initialDelay: 5s
+  attempt: 5
+  initialDelay: 10s
   interval: 2s
-  pollingInterval: 30s
+  pollingInterval: 20s
+  stopOnFailure: true
   timeout: 10s
-  verbosity: debug
-tags: []
+  verbosity: info
+tags:
+- gitx:enabled
 type: containerProbe
 variables: []
