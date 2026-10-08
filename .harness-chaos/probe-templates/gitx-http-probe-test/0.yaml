@@ -1,29 +1,31 @@
 apiVersion: chaos.harness.io/v1
-description: ""
+description: added description
 identity: gitx-http-probe-test
 infrastructureType: Kubernetes
 inputs: null
 kind: ProbeTemplate
-name: gitx-http-probe-test
+name: gitx-http-probe-test-updated
 probeProperties:
   httpProbe:
     method:
       get:
-        criteria: ==
-        responseCode: "200"
+        criteria: contains
+        responseBody: dhdhdh
     tlsConfig:
       caFile: ""
       certFile: ""
       insecureSkipVerify: true
       keyFile: ""
-    url: https://google.com
+    url: https://google.com/
 runProperties:
   attempt: 1
   initialDelay: 5s
   interval: 2s
   pollingInterval: 30s
+  stopOnFailure: true
   timeout: 10s
-  verbosity: debug
-tags: []
+  verbosity: info
+tags:
+- tag:gitx
 type: httpProbe
 variables: []
