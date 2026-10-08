@@ -1,0 +1,29 @@
+apiVersion: chaos.harness.io/v1
+description: ""
+identity: gitx-backed-probe-2-templ
+infrastructureType: Kubernetes
+inputs: null
+kind: ProbeTemplate
+name: gitx-backed-probe-2-templ
+probeProperties:
+  httpProbe:
+    method:
+      get:
+        criteria: ==
+        responseCode: "200"
+    tlsConfig:
+      caFile: ""
+      certFile: ""
+      keyFile: ""
+    url: https://www.google.com
+runProperties:
+  attempt: 1
+  initialDelay: 5s
+  interval: 2s
+  pollingInterval: 30s
+  stopOnFailure: true
+  timeout: 10s
+  verbosity: debug
+tags: []
+type: httpProbe
+variables: []
