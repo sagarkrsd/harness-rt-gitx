@@ -1,0 +1,27 @@
+apiVersion: chaos.harness.io/v1
+description: live GitX test
+hubIdentity: gitx-10220250-hub
+identity: gitx-10220250-e2a
+kind: ProbeTemplate
+name: gitx-10220250-e2a
+orgIdentifier: default
+projectIdentifier: default_project
+revision: 1
+spec:
+  infrastructureType: KubernetesV2
+  probeProperties:
+    httpProbe:
+      auth:
+        credentials: <+secrets.getValue("account.tok")>
+        type: Bearer
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      url: https://example.com
+  runProperties:
+    attempt: 1
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
