@@ -11,6 +11,9 @@ spec:
   infrastructureType: KubernetesV2
   probeProperties:
     httpProbe:
+      auth:
+        type: Bearer
+        credentials: hunter2
       method:
         get:
           criteria: ==
