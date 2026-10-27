@@ -1,0 +1,31 @@
+pipeline:
+  name: git backed pipeline
+  identifier: git_backed_pipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: chaos
+        identifier: chaos
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: Chaos
+                  name: Chaos_1
+                  identifier: Chaos_1
+                  spec:
+                    experimentRef: f4c48f2e-e676-440f-8962-35c20851938a
+                    expectedResilienceScore: 50
+                    tasks:
+                      - identifier: pod-delete-nai
+                        values:
+                          - name: TARGET_WORKLOAD_NAMESPACE
+                            value: sagarkumar
+                          - name: TARGET_WORKLOAD_NAMES
+                            value: event-watcher
+                  timeout: 10m
+        tags: {}
