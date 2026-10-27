@@ -1,0 +1,28 @@
+apiVersion: chaos.harness.io/v1
+hubIdentity: gitx-10220250-hub
+identity: http-probe-qx4
+kind: ProbeTemplate
+name: new-http-probe-qx4
+orgIdentifier: default
+projectIdentifier: default_project
+revision: 1
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: http://localhost:8080
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 10s
+  type: httpProbe
