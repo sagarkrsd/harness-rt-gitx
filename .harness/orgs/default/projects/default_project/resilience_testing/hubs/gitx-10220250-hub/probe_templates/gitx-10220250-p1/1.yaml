@@ -18,7 +18,7 @@ spec:
       url: https://example.com
   runProperties:
     attempt: 1
-    timeout: 10s
+    timeout: 15s
   type: httpProbe
 tags:
 - gitx-live
