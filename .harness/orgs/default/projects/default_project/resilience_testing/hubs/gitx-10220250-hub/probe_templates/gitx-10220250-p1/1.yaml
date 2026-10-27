@@ -16,9 +16,6 @@ spec:
           criteria: ==
           responseCode: "200"
       url: https://example.com
-      auth:
-        type: Bearer
-        credentials: hunter2
   runProperties:
     attempt: 1
     timeout: 10s
