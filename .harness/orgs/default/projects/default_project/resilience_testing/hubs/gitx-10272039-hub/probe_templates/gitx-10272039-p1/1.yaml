@@ -1,5 +1,5 @@
 apiVersion: chaos.harness.io/v1
-description: edited in git c4
+description: saved while flag off
 hubIdentity: gitx-10272039-hub
 identity: gitx-10272039-p1
 kind: ProbeTemplate
@@ -18,7 +18,7 @@ spec:
       url: https://example.com
   runProperties:
     attempt: 1
-    timeout: 15s
+    timeout: 10s
   type: httpProbe
 tags:
 - gitx-live
