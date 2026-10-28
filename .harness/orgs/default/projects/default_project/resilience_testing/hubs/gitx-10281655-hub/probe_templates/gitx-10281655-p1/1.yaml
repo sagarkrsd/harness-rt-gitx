@@ -1,5 +1,5 @@
 apiVersion: chaos.harness.io/v1
-description: live GitX test
+description: edited in git c4
 hubIdentity: gitx-10281655-hub
 identity: gitx-10281655-p1
 kind: ProbeTemplate
