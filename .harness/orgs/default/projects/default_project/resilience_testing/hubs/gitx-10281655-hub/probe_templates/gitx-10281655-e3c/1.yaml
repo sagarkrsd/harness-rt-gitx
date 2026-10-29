@@ -1,0 +1,27 @@
+apiVersion: chaos.harness.io/v1
+description: live GitX test
+hubIdentity: gitx-10281655-hub
+identity: gitx-10281655-e3c
+kind: ProbeTemplate
+name: gitx-10281655-e3c
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      headers:
+      - key: Content-Type
+        value: application/json
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      url: https://example.com
+  runProperties:
+    attempt: 1
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
+versionLabel: "1"

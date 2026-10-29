@@ -1,0 +1,29 @@
+apiVersion: chaos.harness.io/v1
+description: audit move
+hubIdentity: gitx-10220250-hub
+identity: gitx-10220250-aud
+kind: ProbeTemplate
+name: gitx-10220250-aud
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://example1.com
+  runProperties:
+    attempt: 1
+    interval: 69s
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
+versionLabel: "1"
