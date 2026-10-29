@@ -6,7 +6,6 @@ kind: ProbeTemplate
 name: gitx-10220250-aud
 orgIdentifier: default
 projectIdentifier: default_project
-revision: 1
 spec:
   infrastructureType: Kubernetes
   probeProperties:
@@ -15,10 +14,16 @@ spec:
         get:
           criteria: ==
           responseCode: "200"
-      url: https://example.com
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://example1.com
   runProperties:
     attempt: 1
+    interval: 69s
     timeout: 10s
   type: httpProbe
 tags:
 - gitx-live
+versionLabel: "1"
