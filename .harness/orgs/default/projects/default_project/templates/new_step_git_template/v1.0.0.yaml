@@ -12,3 +12,5 @@ template:
     spec:
       skipDryRun: true
       pruningEnabled: false
+  allowedOverrides:
+    - DelegateSelectors
