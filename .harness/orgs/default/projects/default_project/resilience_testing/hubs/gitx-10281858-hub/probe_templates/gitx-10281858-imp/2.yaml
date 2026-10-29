@@ -1,0 +1,22 @@
+apiVersion: chaos.harness.io/v1
+kind: ProbeTemplate
+identity: gitx-10281858-imp
+revision: 2
+orgIdentifier: default
+projectIdentifier: default_project
+hubIdentity: gitx-10281858-hub
+name: gitx-10281858-imp
+description: gitx import
+spec:
+  type: httpProbe
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      url: https://example.com
+      method:
+        get:
+          criteria: "=="
+          responseCode: "200"
+  runProperties:
+    timeout: 10s
+    attempt: 1
