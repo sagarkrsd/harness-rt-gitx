@@ -1,5 +1,5 @@
 apiVersion: chaos.harness.io/v1
-description: live GitX test
+description: saved while flag off
 hubIdentity: gitx-10291522-hub
 identity: gitx-10291522-rr
 kind: ProbeTemplate
