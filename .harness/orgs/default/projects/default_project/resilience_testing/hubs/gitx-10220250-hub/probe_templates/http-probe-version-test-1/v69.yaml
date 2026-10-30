@@ -17,7 +17,7 @@ spec:
         caFile: ""
         certFile: ""
         keyFile: ""
-      url: http://localhost:8080
+      url: http://localhost:8081
   runProperties:
     attempt: 1
     initialDelay: 5s
