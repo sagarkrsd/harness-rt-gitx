@@ -1,0 +1,16 @@
+template:
+  name: new step git template
+  identifier: new_step_git_template
+  type: Step
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: K8sRollingDeploy
+    timeout: 10m
+    spec:
+      skipDryRun: true
+      pruningEnabled: false
+  allowedOverrides:
+    - DelegateSelectors
+  versionLabel: v1.2.0
