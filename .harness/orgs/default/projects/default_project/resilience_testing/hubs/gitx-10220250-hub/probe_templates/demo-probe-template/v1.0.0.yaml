@@ -25,7 +25,7 @@ spec:
     httpProbe:
       method:
         get:
-          criteria: ==
+          criteria: <=
           responseCode: "200"
       tlsConfig:
         caFile: ""
