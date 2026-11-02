@@ -7,12 +7,6 @@ name: gitx-11021206-x1
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  faults:
-    - name: f0
-      identity: pod-delete
-      values:
-        - name: PASSWORD
-          value: hunter2
   cleanupPolicy: retain
   infraType: KubernetesV2
   vertices:
