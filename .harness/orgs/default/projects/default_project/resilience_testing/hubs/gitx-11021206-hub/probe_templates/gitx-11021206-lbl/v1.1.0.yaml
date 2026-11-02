@@ -7,7 +7,7 @@ name: gitx-11021206-lbl
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  infrastructureType: KubernetesV2
+  infrastructureType: Kubernetes
   probeProperties:
     httpProbe:
       method:
@@ -21,4 +21,4 @@ spec:
   type: httpProbe
 tags:
 - gitx-live
-versionLabel: v9.9.9
+versionLabel: v1.1.0
