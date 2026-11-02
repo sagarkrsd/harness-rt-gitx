@@ -1,0 +1,51 @@
+apiVersion: chaos.harness.io/v1
+hubIdentity: gitx-10220250-hub
+identity: testhubsave
+kind: ExperimentTemplate
+name: test-hub-save
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-k8i
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+    - name: TARGET_WORKLOAD_LABELS
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: gitx-10220250-branch
+    isEnterprise: false
+    name: gitx-10220250-branch-0du
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-ka0
+    start:
+      faults:
+      - name: pod-delete-k8i
+  - end:
+      faults:
+      - name: pod-delete-k8i
+    name: v-0fe
+    start:
+      probes:
+      - name: gitx-10220250-branch-0du
+  - end:
+      probes:
+      - name: gitx-10220250-branch-0du
+    name: v-end
+    start: {}
+versionLabel: v1
