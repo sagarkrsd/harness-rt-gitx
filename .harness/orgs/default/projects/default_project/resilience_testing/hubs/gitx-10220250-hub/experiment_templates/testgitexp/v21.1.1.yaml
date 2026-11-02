@@ -1,0 +1,51 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitx-10220250-hub
+identity: testgitexp
+kind: ChaosExperimentTemplate
+name: test-git-exp
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-mx8
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+    - name: TARGET_WORKLOAD_LABELS
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: aws-ec2-instance-status-check
+    isEnterprise: true
+    name: aws-ec2-instance-status-check-x89
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-myt
+    start:
+      faults:
+      - name: pod-delete-mx8
+  - end:
+      faults:
+      - name: pod-delete-mx8
+    name: v-xf4
+    start:
+      probes:
+      - name: aws-ec2-instance-status-check-x89
+  - end:
+      probes:
+      - name: aws-ec2-instance-status-check-x89
+    name: v-end
+    start: {}
+versionLabel: v21.1.1
