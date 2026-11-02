@@ -21,15 +21,26 @@ spec:
     - name: TARGET_WORKLOAD_NAMES
       value: <+input>
   infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: gitx-11021206-branch
+    isEnterprise: false
+    name: gitx-11021206-branch-zds
+    values: []
+    weightage: 10
   vertices:
   - end: {}
     name: v-s2r
     start:
       faults:
       - name: pod-delete-s1u
+      probes:
+      - name: gitx-11021206-branch-zds
   - end:
       faults:
       - name: pod-delete-s1u
+      probes:
+      - name: gitx-11021206-branch-zds
     name: v-end
     start: {}
 versionLabel: v1
