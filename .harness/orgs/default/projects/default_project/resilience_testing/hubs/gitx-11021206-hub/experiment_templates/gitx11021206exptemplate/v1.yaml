@@ -23,15 +23,26 @@ spec:
     - name: POD_AFFECTED_PERCENTAGE
       value: <+input>
   infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: gitx-11021206-p1
+    isEnterprise: false
+    name: gitx-11021206-p1-7pw
+    values: []
+    weightage: 10
   vertices:
   - end: {}
     name: v-277
     start:
       faults:
       - name: pod-delete-26a
+      probes:
+      - name: gitx-11021206-p1-7pw
   - end:
       faults:
       - name: pod-delete-26a
+      probes:
+      - name: gitx-11021206-p1-7pw
     name: v-end
     start: {}
 versionLabel: v1
