@@ -1,0 +1,69 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitx-10220250-hub
+identity: templatescopetest
+kind: ChaosExperimentTemplate
+name: template-scope-test
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-gwa
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+    - name: TARGET_WORKLOAD_LABELS
+      value: <+input>
+    - name: POD_AFFECTED_PERCENTAGE
+      value: <+input>
+    - name: TOTAL_CHAOS_DURATION
+      value: 100
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: demo-probe-template
+    isEnterprise: false
+    name: demo-probe-template-rq8
+    values:
+    - name: ATTEMPT
+      value: 1
+    weightage: 10
+  - duration: 30s
+    identity: demo-probe-template
+    isEnterprise: false
+    name: demo-probe-template-8g7
+    values:
+    - name: ATTEMPT
+      value: 5
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-gx0
+    start:
+      faults:
+      - name: pod-delete-gwa
+      probes:
+      - name: demo-probe-template-rq8
+  - end:
+      faults:
+      - name: pod-delete-gwa
+      probes:
+      - name: demo-probe-template-rq8
+    name: v-8ja
+    start:
+      probes:
+      - name: demo-probe-template-8g7
+  - end:
+      probes:
+      - name: demo-probe-template-8g7
+    name: v-end
+    start: {}
+versionLabel: v13.1.0
