@@ -21,4 +21,4 @@ spec:
   type: httpProbe
 tags:
 - gitx-live
-versionLabel: v1.1.0
+versionLabel: v9.9.9
