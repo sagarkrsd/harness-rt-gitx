@@ -15,7 +15,7 @@ spec:
     revision: v1
     values:
     - name: TARGET_WORKLOAD_KIND
-      value: <+input>
+      value: deployment
     - name: TARGET_WORKLOAD_NAMESPACE
       value: <+input>
     - name: TARGET_WORKLOAD_NAMES
@@ -25,7 +25,7 @@ spec:
     - name: POD_AFFECTED_PERCENTAGE
       value: <+input>
     - name: TOTAL_CHAOS_DURATION
-      value: 69
+      value: 100
   infraType: KubernetesV2
   probes:
   - duration: 30s
@@ -34,7 +34,7 @@ spec:
     name: demo-probe-template-rq8
     values:
     - name: ATTEMPT
-      value: 2
+      value: 1
     weightage: 10
   vertices:
   - end: {}
