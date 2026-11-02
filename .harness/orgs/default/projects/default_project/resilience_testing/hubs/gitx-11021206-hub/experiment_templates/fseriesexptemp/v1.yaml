@@ -1,0 +1,62 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitx-11021206-hub
+identity: fseriesexptemp
+kind: ChaosExperimentTemplate
+name: f-series-exp-temp
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-h0i
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: gitx-11021206-f1
+    isEnterprise: false
+    name: gitx-11021206-f1-vc0
+    values: []
+    weightage: 10
+  - duration: 30s
+    identity: gitx-11021206-f2
+    isEnterprise: false
+    name: gitx-11021206-f2-45l
+    values: []
+    weightage: 10
+  - duration: 30s
+    identity: gitx-11021206-f3
+    isEnterprise: false
+    name: gitx-11021206-f3-can
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-h1x
+    start:
+      faults:
+      - name: pod-delete-h0i
+      probes:
+      - name: gitx-11021206-f1-vc0
+      - name: gitx-11021206-f2-45l
+      - name: gitx-11021206-f3-can
+  - end:
+      faults:
+      - name: pod-delete-h0i
+      probes:
+      - name: gitx-11021206-f1-vc0
+      - name: gitx-11021206-f2-45l
+      - name: gitx-11021206-f3-can
+    name: v-end
+    start: {}
+versionLabel: v1
