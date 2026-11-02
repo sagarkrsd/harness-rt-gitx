@@ -23,7 +23,7 @@ spec:
     - name: TARGET_WORKLOAD_LABELS
       value: <+input>
     - name: POD_AFFECTED_PERCENTAGE
-      value: <+input>
+      value: 100
   infraType: KubernetesV2
   probes:
   - duration: 30s
