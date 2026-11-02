@@ -7,7 +7,7 @@ name: gitx-11021206-e2a
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  infrastructureType: KubernetesV2
+  infrastructureType: Kubernetes
   probeProperties:
     httpProbe:
       auth:
