@@ -7,7 +7,7 @@ name: gitx-11021206-num
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  infrastructureType: KubernetesV2
+  infrastructureType: Kubernetes
   probeProperties:
     httpProbe:
       method:
