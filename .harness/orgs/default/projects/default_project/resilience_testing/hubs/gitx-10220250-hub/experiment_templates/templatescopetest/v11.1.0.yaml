@@ -29,10 +29,12 @@ spec:
   infraType: KubernetesV2
   probes:
   - duration: 30s
-    identity: http-probe-5yf
+    identity: demo-probe-template
     isEnterprise: false
-    name: http-probe-5yf-orq
-    values: []
+    name: demo-probe-template-rq8
+    values:
+    - name: ATTEMPT
+      value: 2
     weightage: 10
   vertices:
   - end: {}
@@ -41,12 +43,12 @@ spec:
       faults:
       - name: pod-delete-gwa
       probes:
-      - name: http-probe-5yf-orq
+      - name: demo-probe-template-rq8
   - end:
       faults:
       - name: pod-delete-gwa
       probes:
-      - name: http-probe-5yf-orq
+      - name: demo-probe-template-rq8
     name: v-end
     start: {}
 versionLabel: v11.1.0
