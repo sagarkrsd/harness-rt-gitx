@@ -1,0 +1,52 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitx-10220250-hub
+identity: templatescopetest
+kind: ChaosExperimentTemplate
+name: template-scope-test
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-gwa
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+    - name: TARGET_WORKLOAD_LABELS
+      value: <+input>
+    - name: POD_AFFECTED_PERCENTAGE
+      value: <+input>
+    - name: TOTAL_CHAOS_DURATION
+      value: 69
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: http-probe-5yf
+    isEnterprise: false
+    name: http-probe-5yf-orq
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-gx0
+    start:
+      faults:
+      - name: pod-delete-gwa
+      probes:
+      - name: http-probe-5yf-orq
+  - end:
+      faults:
+      - name: pod-delete-gwa
+      probes:
+      - name: http-probe-5yf-orq
+    name: v-end
+    start: {}
+versionLabel: v11.1.0
