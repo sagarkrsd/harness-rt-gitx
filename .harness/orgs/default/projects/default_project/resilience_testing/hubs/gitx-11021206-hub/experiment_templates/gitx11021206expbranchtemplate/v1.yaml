@@ -1,0 +1,35 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitx-11021206-hub
+identity: gitx11021206expbranchtemplate
+kind: ChaosExperimentTemplate
+name: gitx-11021206-exp-branch-template
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-s1u
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  vertices:
+  - end: {}
+    name: v-s2r
+    start:
+      faults:
+      - name: pod-delete-s1u
+  - end:
+      faults:
+      - name: pod-delete-s1u
+    name: v-end
+    start: {}
+versionLabel: v1
