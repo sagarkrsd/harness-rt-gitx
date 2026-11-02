@@ -1,5 +1,5 @@
 apiVersion: litmuschaos.io/v1beta1
-description: live GitX test
+description: x6
 hubIdentity: gitx-11021206-hub
 identity: gitx-11021206-x1
 kind: ChaosExperimentTemplate
