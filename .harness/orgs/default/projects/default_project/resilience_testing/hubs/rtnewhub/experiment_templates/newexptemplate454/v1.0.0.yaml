@@ -1,0 +1,46 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: rtnewhub
+identity: newexptemplate454
+kind: ChaosExperimentTemplate
+name: new-exp-template-454
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-ydf
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: new-git-backed-http-probe-622
+    isEnterprise: false
+    name: new-git-backed-http-probe-622-b14
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-ye8
+    start:
+      faults:
+      - name: pod-delete-ydf
+      probes:
+      - name: new-git-backed-http-probe-622-b14
+  - end:
+      faults:
+      - name: pod-delete-ydf
+      probes:
+      - name: new-git-backed-http-probe-622-b14
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
