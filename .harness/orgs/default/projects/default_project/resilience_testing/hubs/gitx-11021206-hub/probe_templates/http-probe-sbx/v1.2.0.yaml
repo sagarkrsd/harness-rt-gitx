@@ -1,6 +1,6 @@
 apiVersion: chaos.harness.io/v1
 hubIdentity: gitx-11021206-hub
-identity: http-probe-sbx
+identity: new-http-probe-sbx
 kind: ProbeTemplate
 name: new-http-probe-sbx
 orgIdentifier: default
