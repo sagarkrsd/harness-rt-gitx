@@ -1,0 +1,27 @@
+apiVersion: chaos.harness.io/v1
+identity: new-http-probe-sbx
+kind: ProbeTemplate
+name: new-http-probe-sbx
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://google.com
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 10s
+  type: httpProbe
+versionLabel: v1.0.0
