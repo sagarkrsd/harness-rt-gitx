@@ -1,0 +1,46 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: rtnewhub
+identity: demoexptemplate453
+kind: ChaosExperimentTemplate
+name: demo-exp-template-453
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-6si
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: import-http-demo-622
+    isEnterprise: false
+    name: import-http-demo-622-yh8
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-6u1
+    start:
+      faults:
+      - name: pod-delete-6si
+      probes:
+      - name: import-http-demo-622-yh8
+  - end:
+      faults:
+      - name: pod-delete-6si
+      probes:
+      - name: import-http-demo-622-yh8
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
