@@ -22,8 +22,8 @@ spec:
     attempt: 1
     initialDelay: 5s
     interval: 2s
-    pollingInterval: 30s
-    timeout: 10s
+    pollingInterval: 40s
+    timeout: 180s
     verbosity: debug
   type: httpProbe
 versionLabel: v1.0.0
