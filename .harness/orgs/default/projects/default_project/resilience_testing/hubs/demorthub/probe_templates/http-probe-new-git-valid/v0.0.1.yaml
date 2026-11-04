@@ -1,0 +1,30 @@
+apiVersion: chaos.harness.io/v1
+hubIdentity: demorthub
+identity: http-probe-new-git-valid
+kind: ProbeTemplate
+name: http-probe-new-git-valid
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://google.com
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    stopOnFailure: true
+    timeout: 10s
+    verbosity: debug
+  type: httpProbe
+versionLabel: v0.0.1
