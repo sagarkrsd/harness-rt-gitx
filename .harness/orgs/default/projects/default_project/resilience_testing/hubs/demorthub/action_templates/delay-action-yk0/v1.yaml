@@ -1,0 +1,14 @@
+apiVersion: chaos.harness.io/v1
+hubIdentity: demorthub
+identity: delay-action-yk0
+kind: ActionTemplate
+name: new-delay-action-yk0
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: v1
