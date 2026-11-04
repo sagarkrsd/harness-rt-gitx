@@ -17,7 +17,7 @@ spec:
         caFile: ""
         certFile: ""
         keyFile: ""
-      url: https://google.com
+      url: https://www.google.com
   runProperties:
     attempt: 1
     initialDelay: 1s
