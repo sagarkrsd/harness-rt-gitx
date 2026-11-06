@@ -1,0 +1,46 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: rtnewhub
+identity: exptemplategitbased
+kind: ChaosExperimentTemplate
+name: exp-template-git-based
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-4pn
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: http-probe-lcj
+    isEnterprise: false
+    name: http-probe-lcj-osp
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-4qh
+    start:
+      faults:
+      - name: pod-delete-4pn
+      probes:
+      - name: http-probe-lcj-osp
+  - end:
+      faults:
+      - name: pod-delete-4pn
+      probes:
+      - name: http-probe-lcj-osp
+    name: v-end
+    start: {}
+versionLabel: v0.0.1
