@@ -1,0 +1,32 @@
+apiVersion: chaos.harness.io/v1
+hubIdentity: rtnewhub
+identity: test-fault-template-git
+kind: FaultTemplate
+name: test-fault-template-git
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  category:
+  - Kubernetes
+  infras:
+  - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
+  spec:
+    chaos:
+      faultName: byoc-injector
+      kubernetes:
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: sagarnewdocker/git:latest
+        resourceRequirements: {}
+      params:
+      - name: CHAOS_DURATION
+        value: 30s
+  type: Custom
+versionLabel: v1.0.0
