@@ -1,0 +1,27 @@
+hubIdentity: gitbackednewhub
+identity: git-backed-demo-probe
+name: git-backed-demo-probe
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://www.example.com
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 180s
+    verbosity: info
+  type: httpProbe
+versionLabel: v1.2.0
