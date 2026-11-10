@@ -1,0 +1,59 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: rtnewhub
+identity: gitbackedexperimenttemplatetest
+kind: ChaosExperimentTemplate
+name: git-backed-experiment-template-test
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: git-backed-delay-action-temp
+    isEnterprise: false
+    name: git-backed-delay-action-temp-q3g
+    values: []
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-gdc
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: git-backed-probe-template
+    isEnterprise: false
+    name: git-backed-probe-template-1ua
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-q54
+    start:
+      actions:
+      - name: git-backed-delay-action-temp-q3g
+  - end:
+      actions:
+      - name: git-backed-delay-action-temp-q3g
+    name: v-ge6
+    start:
+      faults:
+      - name: pod-delete-gdc
+      probes:
+      - name: git-backed-probe-template-1ua
+  - end:
+      faults:
+      - name: pod-delete-gdc
+      probes:
+      - name: git-backed-probe-template-1ua
+    name: v-end
+    start: {}
+versionLabel: v1.1.0
