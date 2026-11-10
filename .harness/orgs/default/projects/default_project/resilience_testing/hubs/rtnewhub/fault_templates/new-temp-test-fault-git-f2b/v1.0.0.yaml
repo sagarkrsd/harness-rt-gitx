@@ -26,5 +26,7 @@ spec:
       params:
       - name: CHAOS_DURATION
         value: 90s
+      - name: TEST_DURATION
+        value: 10s
   type: Custom
 versionLabel: v1.0.0
