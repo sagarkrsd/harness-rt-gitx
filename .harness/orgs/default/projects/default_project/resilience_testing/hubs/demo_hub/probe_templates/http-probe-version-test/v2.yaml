@@ -1,0 +1,58 @@
+hubIdentity: demo_hub
+identity: http-probe-version-test
+name: http-probe-version-test
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  inputs:
+  - allowedValues: null
+    category: ""
+    default: null
+    description: ""
+    name: METHOD_GET_RESPONSECODE
+    path: .probeProperties.httpProbe.method.get.responseCode
+    required: false
+    stringify: false
+    tags: null
+    tooltipId: ""
+    type: String
+    validator: ""
+    value: <+input>
+  - allowedValues: null
+    category: ""
+    default: null
+    description: ""
+    name: URL
+    path: .probeProperties.httpProbe.url
+    required: false
+    stringify: false
+    tags: null
+    tooltipId: ""
+    type: String
+    validator: ""
+    value: <+input>
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: <+input>
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: <+input>
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: <+probe.variables.v1_rev_variable>
+    pollingInterval: 30s
+    timeout: 10s
+  type: httpProbe
+  variables:
+  - name: v1_rev_variable
+    required: false
+    type: String
+    value: test
+versionLabel: v2
