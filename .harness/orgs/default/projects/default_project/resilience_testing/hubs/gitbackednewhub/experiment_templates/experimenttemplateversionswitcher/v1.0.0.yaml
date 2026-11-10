@@ -1,0 +1,58 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitbackednewhub
+identity: experimenttemplateversionswitcher
+kind: ChaosExperimentTemplate
+name: experiment-template-version-switcher
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-x2s
+    revision: v1
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: git-backed-demo-probe
+    isEnterprise: false
+    name: git-backed-demo-probe-0u5
+    values: []
+    weightage: 10
+  - duration: 30s
+    identity: git-backed-demo-probe
+    isEnterprise: false
+    name: git-backed-demo-probe-si3
+    values: []
+    versionLabel: v0.0.1
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-x3y
+    start:
+      faults:
+      - name: pod-delete-x2s
+  - end:
+      faults:
+      - name: pod-delete-x2s
+    name: v-0z8
+    start:
+      probes:
+      - name: git-backed-demo-probe-0u5
+      - name: git-backed-demo-probe-si3
+  - end:
+      probes:
+      - name: git-backed-demo-probe-0u5
+      - name: git-backed-demo-probe-si3
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
