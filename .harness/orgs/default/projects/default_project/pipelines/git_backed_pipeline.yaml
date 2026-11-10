@@ -31,4 +31,4 @@ pipeline:
         tags: {}
         runMode:
           type: Manual
-          timeout: 30m
+          timeout: 35m
