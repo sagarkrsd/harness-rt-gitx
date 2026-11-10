@@ -29,3 +29,6 @@ pipeline:
                             value: event-watcher
                   timeout: 10m
         tags: {}
+        runMode:
+          type: Manual
+          timeout: 30m
