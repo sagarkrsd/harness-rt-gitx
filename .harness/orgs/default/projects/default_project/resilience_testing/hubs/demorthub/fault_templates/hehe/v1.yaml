@@ -1,7 +1,5 @@
-apiVersion: chaos.harness.io/v1
 hubIdentity: demorthub
 identity: hehe
-kind: FaultTemplate
 name: hehe
 orgIdentifier: default
 projectIdentifier: default_project
