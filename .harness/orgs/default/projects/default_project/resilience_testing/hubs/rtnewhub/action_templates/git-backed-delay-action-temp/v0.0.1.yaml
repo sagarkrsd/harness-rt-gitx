@@ -1,0 +1,12 @@
+hubIdentity: rtnewhub
+identity: git-backed-delay-action-temp
+name: git-backed-delay-action-temp
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: v0.0.1
