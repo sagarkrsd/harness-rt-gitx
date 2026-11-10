@@ -15,13 +15,13 @@ spec:
         caFile: ""
         certFile: ""
         keyFile: ""
-      url: https://google.com
+      url: https://www.google.com
   runProperties:
     attempt: 1
-    initialDelay: 5s
+    initialDelay: 10s
     interval: 2s
     pollingInterval: 30s
     timeout: 10s
-    verbosity: debug
+    verbosity: info
   type: httpProbe
 versionLabel: v0.0.1
