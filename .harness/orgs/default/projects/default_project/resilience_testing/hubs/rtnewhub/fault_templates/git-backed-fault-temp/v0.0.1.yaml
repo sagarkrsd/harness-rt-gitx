@@ -1,0 +1,30 @@
+hubIdentity: rtnewhub
+identity: git-backed-fault-temp
+name: git-backed-fault-temp
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  category:
+  - Kubernetes
+  infras:
+  - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
+  spec:
+    chaos:
+      faultName: byoc-injector
+      kubernetes:
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: sagarnewdocker/git-backed-fault:v0.0.1
+        resourceRequirements: {}
+      params:
+      - name: CHAOS_DURATION
+        value: 30s
+  type: Custom
+versionLabel: v0.0.1
