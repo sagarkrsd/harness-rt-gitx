@@ -1,0 +1,30 @@
+hubIdentity: rtnewhub
+identity: new-temp-test-fault-git-f2b
+name: new-temp-test-fault-git-f2b
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  category:
+  - Kubernetes
+  infras:
+  - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
+  spec:
+    chaos:
+      faultName: byoc-injector
+      kubernetes:
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: sagarnewdocker/new-template:v1.0.0
+        resourceRequirements: {}
+      params:
+      - name: CHAOS_DURATION
+        value: 90s
+  type: Custom
+versionLabel: v1.0.0
