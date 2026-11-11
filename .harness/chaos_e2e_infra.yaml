@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: Chaos E2E Infrastructure
+  identifier: chaos_e2e_infra
+  orgIdentifier: PnC
+  projectIdentifier: team1
+  environmentRef: chaos_e2e_env_1
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: org.pnc
+    namespace: harness-delegate-ng
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
