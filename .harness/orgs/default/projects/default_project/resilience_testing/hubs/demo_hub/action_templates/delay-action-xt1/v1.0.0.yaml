@@ -1,0 +1,12 @@
+hubIdentity: demo_hub
+identity: delay-action-xt1
+name: new-delay-action-xt1
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: v1.0.0
