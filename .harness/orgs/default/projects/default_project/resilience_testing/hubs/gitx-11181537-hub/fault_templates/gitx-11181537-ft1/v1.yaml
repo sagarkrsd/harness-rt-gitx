@@ -12,6 +12,8 @@ spec:
     chaos:
       faultName: byoc-injector
       params:
+        - name: password
+          value: hunter2
       - name: DURATION
         value: "30"
   type: Custom
