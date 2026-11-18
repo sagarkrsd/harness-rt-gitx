@@ -1,0 +1,14 @@
+apiVersion: litmuschaos.io/v1beta1
+kind: ChaosExperimentTemplate
+identity: gitx-11181525-ximp
+versionLabel: v1
+orgIdentifier: default
+projectIdentifier: default_project
+hubIdentity: gitx-11181525-hub
+name: gitx-11181525-ximp
+description: imported
+spec:
+  infraType: Kubernetes
+  vertices:
+    - name: v0
+  cleanupPolicy: retain
