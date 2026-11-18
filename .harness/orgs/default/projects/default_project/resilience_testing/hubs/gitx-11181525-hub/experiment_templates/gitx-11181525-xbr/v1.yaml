@@ -1,0 +1,25 @@
+apiVersion: litmuschaos.io/v1beta1
+description: live GitX test
+hubIdentity: gitx-11181525-hub
+identity: gitx-11181525-xbr
+kind: ChaosExperimentTemplate
+name: gitx-11181525-xbr
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  cleanupPolicy: retain
+  faults:
+  - identity: pod-delete
+    isEnterprise: true
+    name: f0
+    values: null
+  infraType: Kubernetes
+  vertices:
+  - end: {}
+    name: v0
+    start:
+      faults:
+      - name: f0
+tags:
+- gitx-live
+versionLabel: v1
