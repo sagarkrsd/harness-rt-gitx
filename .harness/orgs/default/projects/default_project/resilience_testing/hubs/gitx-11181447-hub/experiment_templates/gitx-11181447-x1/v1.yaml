@@ -9,11 +9,6 @@ projectIdentifier: default_project
 spec:
   cleanupPolicy: retain
   faults:
-    - name: fcred
-      identity: pod-delete
-      values:
-        - name: PASSWORD
-          value: hunter2
   - identity: pod-delete
     isEnterprise: true
     name: f0
