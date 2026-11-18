@@ -5,6 +5,10 @@ name: gitx-11181537-t1
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
+  inputs:
+    - name: GITX_LIVE_REQUIRED
+      description: required by the GitX live input-mismatch check
+      required: true
   actionProperties:
     delayAction:
       duration: 30s
