@@ -1,0 +1,15 @@
+description: live GitX test
+hubIdentity: gitx-11181537-thub
+identity: gitx-11181537-thub
+name: gitx-11181537-thub
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 30s
+  infrastructureType: Kubernetes
+  type: delay
+tags:
+- gitx-live
+versionLabel: v1
