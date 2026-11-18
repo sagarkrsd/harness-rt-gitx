@@ -1,0 +1,15 @@
+description: t19-edited
+hubIdentity: gitx-11181525-hub
+identity: gitx-11181525-t1
+name: gitx-11181525-t1
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 30s
+  infrastructureType: Kubernetes
+  type: delay
+tags:
+- gitx-live
+versionLabel: v1
