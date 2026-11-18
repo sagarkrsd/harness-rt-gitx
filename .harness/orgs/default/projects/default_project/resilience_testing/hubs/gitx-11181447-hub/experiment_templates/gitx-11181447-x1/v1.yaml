@@ -8,7 +8,6 @@ orgIdentifier: default
 projectIdentifier: default_project
 spec:
   cleanupPolicy: retain
-  faults:
   - identity: pod-delete
     isEnterprise: true
     name: f0
