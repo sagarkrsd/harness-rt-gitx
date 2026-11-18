@@ -18,6 +18,7 @@ spec:
   - end: {}
     name: v0live
     start:
+      faults:
       - name: f0
 tags:
 - gitx-live
