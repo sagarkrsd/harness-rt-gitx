@@ -1,0 +1,22 @@
+description: revision two
+hubIdentity: gitx-11181447-hub
+identity: gitx-11181447-p1
+name: gitx-11181447-p1
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      url: https://example.com
+  runProperties:
+    attempt: 1
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
+versionLabel: "2"
