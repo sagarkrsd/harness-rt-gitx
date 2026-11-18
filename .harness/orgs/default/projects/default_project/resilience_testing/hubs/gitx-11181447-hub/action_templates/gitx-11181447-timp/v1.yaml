@@ -1,0 +1,13 @@
+identity: gitx-11181447-timp
+versionLabel: v1
+orgIdentifier: default
+projectIdentifier: default_project
+hubIdentity: gitx-11181447-hub
+name: gitx-11181447-timp
+description: imported
+spec:
+  type: delay
+  infrastructureType: KubernetesV2
+  actionProperties:
+    delayAction:
+      duration: 30s
