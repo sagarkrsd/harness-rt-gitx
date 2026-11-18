@@ -1,0 +1,27 @@
+description: live GitX test
+hubIdentity: gitx-11181525-hub
+identity: gitx-11181525-num
+name: gitx-11181525-num
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://example.com
+  runProperties:
+    attempt: 1
+    interval: 30s
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
+versionLabel: v1.1.0
