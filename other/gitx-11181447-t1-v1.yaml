@@ -8,7 +8,7 @@ spec:
   actionProperties:
     delayAction:
       duration: 30s
-  infrastructureType: KubernetesV2
+  infrastructureType: Kubernetes
   type: delay
 tags:
 - gitx-live
