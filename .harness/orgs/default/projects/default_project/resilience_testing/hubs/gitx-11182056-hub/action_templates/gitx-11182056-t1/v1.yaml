@@ -6,6 +6,11 @@ orgIdentifier: default
 projectIdentifier: default_project
 spec:
   actionProperties:
+    customScriptAction:
+      command: echo
+      env:
+        - name: PASSWORD
+          value: hunter2
     delayAction:
       duration: 30s
   infrastructureType: Kubernetes
