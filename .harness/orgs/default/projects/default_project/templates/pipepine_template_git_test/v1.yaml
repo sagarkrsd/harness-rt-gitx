@@ -29,4 +29,11 @@ template:
                     template:
                       templateRef: step_template_1
                       versionLabel: v1
+                - step:
+                    name: hhj
+                    identifier: hhj
+                    template:
+                      templateRef: step_template_1
+                      versionLabel: v4
+                      gitBranch: main-patch-nov19
           tags: {}
