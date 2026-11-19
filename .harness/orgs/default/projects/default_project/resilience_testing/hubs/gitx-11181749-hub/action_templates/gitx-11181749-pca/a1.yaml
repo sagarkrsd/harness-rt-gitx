@@ -1,0 +1,15 @@
+description: live GitX test
+hubIdentity: gitx-11181749-hub
+identity: gitx-11181749-pca
+name: gitx-11181749-pca
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 30s
+  infrastructureType: Kubernetes
+  type: delay
+tags:
+- gitx-live
+versionLabel: a1
