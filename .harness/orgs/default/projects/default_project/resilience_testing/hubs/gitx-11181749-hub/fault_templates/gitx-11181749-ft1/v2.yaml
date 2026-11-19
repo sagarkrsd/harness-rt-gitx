@@ -1,0 +1,18 @@
+identity: gitx-11181749-ft1
+versionLabel: v2
+orgIdentifier: default
+projectIdentifier: default_project
+hubIdentity: gitx-11181749-hub
+name: gitx-11181749-ft1
+description: ft4
+spec:
+  type: Custom
+  infraType: Kubernetes
+  infras:
+    - KubernetesV2
+  spec:
+    chaos:
+      faultName: byoc-injector
+      params:
+        - name: DURATION
+          value: "30"
