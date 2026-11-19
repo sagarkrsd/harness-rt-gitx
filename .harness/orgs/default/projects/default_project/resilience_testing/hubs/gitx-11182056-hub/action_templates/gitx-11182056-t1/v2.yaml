@@ -1,0 +1,15 @@
+description: t4
+hubIdentity: gitx-11182056-hub
+identity: gitx-11182056-t1
+name: gitx-11182056-t1
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 30s
+  infrastructureType: Kubernetes
+  type: delay
+tags:
+- gitx-live
+versionLabel: v2
