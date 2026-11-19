@@ -16,7 +16,7 @@ spec:
   infraType: KubernetesV2
   vertices:
   - end: {}
-    name: v0
+    name: v0live
     start:
       faults:
       - name: f0
