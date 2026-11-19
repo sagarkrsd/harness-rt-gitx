@@ -1,0 +1,59 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: demo_hub
+identity: testversionswitch
+kind: ChaosExperimentTemplate
+name: test-version-switch
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: name-test
+    isEnterprise: false
+    name: name-test-83k
+    values:
+    - name: DURATION
+      value: <+input>
+    versionLabel: v3.0.0
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-delete
+    isEnterprise: true
+    name: pod-delete-zol
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: main-branch-test-http-remote
+    isEnterprise: false
+    name: main-branch-test-http-remote-hiq
+    values: []
+    versionLabel: v11.0.0
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-zpa
+    start:
+      actions:
+      - name: name-test-83k
+      faults:
+      - name: pod-delete-zol
+      probes:
+      - name: main-branch-test-http-remote-hiq
+  - end:
+      actions:
+      - name: name-test-83k
+      faults:
+      - name: pod-delete-zol
+      probes:
+      - name: main-branch-test-http-remote-hiq
+    name: v-end
+    start: {}
+versionLabel: v1
