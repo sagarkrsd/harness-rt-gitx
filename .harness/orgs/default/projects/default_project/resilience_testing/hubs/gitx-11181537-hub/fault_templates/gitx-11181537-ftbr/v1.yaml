@@ -5,12 +5,25 @@ name: gitx-11181537-ftbr
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  infraType: Kubernetes
+  category:
+  - Kubernetes
   infras:
   - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
   spec:
     chaos:
       faultName: byoc-injector
+      kubernetes:
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: latest
+        resourceRequirements: {}
       params:
       - name: DURATION
         value: "30"
