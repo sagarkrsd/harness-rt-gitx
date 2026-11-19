@@ -1,0 +1,18 @@
+identity: gitx-11181537-pvt
+versionLabel: v1.2.0
+orgIdentifier: default
+projectIdentifier: default_project
+hubIdentity: gitx-11181537-hub
+name: gitx-11181537-pvt
+description: pv dotted
+spec:
+  type: Custom
+  infraType: Kubernetes
+  infras:
+    - KubernetesV2
+  spec:
+    chaos:
+      faultName: byoc-injector
+      params:
+        - name: DURATION
+          value: "45"
