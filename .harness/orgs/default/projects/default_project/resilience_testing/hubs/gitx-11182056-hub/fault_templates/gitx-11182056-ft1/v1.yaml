@@ -1,0 +1,20 @@
+description: live GitX test
+hubIdentity: gitx-11182056-hub
+identity: gitx-11182056-ft1
+name: gitx-11182056-ft1
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infraType: Kubernetes
+  infras:
+  - KubernetesV2
+  spec:
+    chaos:
+      faultName: byoc-injector
+      params:
+      - name: DURATION
+        value: "30"
+  type: Custom
+tags:
+- gitx-live
+versionLabel: v1
