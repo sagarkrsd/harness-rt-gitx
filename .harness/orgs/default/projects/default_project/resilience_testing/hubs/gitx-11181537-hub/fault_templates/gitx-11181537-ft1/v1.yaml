@@ -5,13 +5,6 @@ name: gitx-11181537-ft1
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
-  inputs:
-    - name: GITX_LIVE_REQUIRED
-      description: required by the GitX live input-mismatch check
-      category: FaultTunable
-      type: String
-      value: <+input>
-      required: true
   infraType: Kubernetes
   infras:
   - KubernetesV2
