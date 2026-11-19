@@ -1,0 +1,21 @@
+hubIdentity: demo_hub
+identity: custom-script-action-sw5
+name: new-custom-script-action-sw5
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    customScriptAction:
+      args:
+      - -c
+      - while true; do echo hello; sleep 10;done
+      command: /bin/sh
+  infrastructureType: Windows
+  runProperties:
+    initialDelay: 5s
+    interval: 2s
+    iterations: 1
+    maxRetries: 1
+    timeout: 10s
+  type: customScript
+versionLabel: v1
