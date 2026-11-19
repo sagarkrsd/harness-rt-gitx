@@ -1,6 +1,6 @@
 hubIdentity: demo_hub
 identity: name-test
-name: ""
+name: test-name-added-manually
 orgIdentifier: default
 projectIdentifier: default_project
 spec:
