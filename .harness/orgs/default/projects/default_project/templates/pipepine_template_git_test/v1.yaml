@@ -1,0 +1,32 @@
+template:
+  name: pipepine template git test
+  identifier: pipepine_template_git_test
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: test
+          identifier: test
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: ggg
+                    identifier: ggg
+                    template:
+                      templateRef: step_template_1
+                      versionLabel: v2
+                      gitBranch: main-patch-nov19
+                - step:
+                    name: sdd
+                    identifier: sdd
+                    template:
+                      templateRef: step_template_1
+                      versionLabel: v1
+          tags: {}
