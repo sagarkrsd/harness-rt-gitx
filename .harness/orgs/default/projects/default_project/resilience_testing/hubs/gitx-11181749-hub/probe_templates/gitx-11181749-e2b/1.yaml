@@ -1,0 +1,25 @@
+description: live GitX test
+hubIdentity: gitx-11181749-hub
+identity: gitx-11181749-e2b
+name: gitx-11181749-e2b
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      auth:
+        credentials: <+input>
+        type: Bearer
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      url: https://example.com
+  runProperties:
+    attempt: 1
+    timeout: 10s
+  type: httpProbe
+tags:
+- gitx-live
+versionLabel: "1"
