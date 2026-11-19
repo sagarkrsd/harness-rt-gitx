@@ -20,3 +20,6 @@ spec:
 tags:
 - gitx-live
 versionLabel: "1"
+---
+spec:
+  password: hunter2
