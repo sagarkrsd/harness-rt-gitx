@@ -1,0 +1,26 @@
+hubIdentity: demo_hub
+identity: name-test
+name: test-name-added-manually
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: <+input>
+  infrastructureType: Kubernetes
+  inputs:
+  - allowedValues: null
+    category: ""
+    default: null
+    description: ""
+    name: DURATION
+    path: .actionProperties.delayAction.duration
+    required: true
+    stringify: false
+    tags: null
+    tooltipId: ""
+    type: String
+    validator: ""
+    value: <+input>
+  type: delay
+versionLabel: v3.0.0
