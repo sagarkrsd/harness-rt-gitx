@@ -1,0 +1,82 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: demoremoterthub2211
+identity: exp-temp-code-gitx-23-11-vvt-copy
+kind: ChaosExperimentTemplate
+name: exp-temp-code-gitx-23-11-vvt-copy
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: new-delay-23-11-action-g8u
+    isEnterprise: false
+    name: new-delay-23-11-action-g8u-z31
+    values:
+    - name: DURATION
+      value: <+input>
+  - continueOnCompletion: false
+    identity: new-delay-23-11-action-g8u
+    isEnterprise: false
+    name: new-delay-23-11-action-g8u-cfs
+    values: []
+    versionLabel: v0.0.1
+  - continueOnCompletion: false
+    identity: custom-script-action-bq4
+    isEnterprise: false
+    name: custom-script-action-bq4-u2u
+    values: []
+    versionLabel: v1
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: fault-template-23-11
+    isEnterprise: false
+    name: fault-template-23-11-r9z
+    revision: v0.0.1
+    values: []
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: new-cmd-probe-23-11-q4j
+    isEnterprise: false
+    name: new-cmd-probe-23-11-q4j-6ij
+    values: []
+    weightage: 10
+  - duration: 30s
+    identity: gitx-http-probe-template-23-11
+    isEnterprise: false
+    name: gitx-http-probe-template-23-11-hp3
+    values: []
+    versionLabel: v1.0.0
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-z72
+    start:
+      actions:
+      - name: new-delay-23-11-action-g8u-z31
+      - name: new-delay-23-11-action-g8u-cfs
+  - end:
+      actions:
+      - name: new-delay-23-11-action-g8u-z31
+      - name: new-delay-23-11-action-g8u-cfs
+    name: v-rc3
+    start:
+      actions:
+      - name: custom-script-action-bq4-u2u
+      faults:
+      - name: fault-template-23-11-r9z
+      probes:
+      - name: new-cmd-probe-23-11-q4j-6ij
+      - name: gitx-http-probe-template-23-11-hp3
+  - end:
+      actions:
+      - name: custom-script-action-bq4-u2u
+      faults:
+      - name: fault-template-23-11-r9z
+      probes:
+      - name: new-cmd-probe-23-11-q4j-6ij
+      - name: gitx-http-probe-template-23-11-hp3
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
