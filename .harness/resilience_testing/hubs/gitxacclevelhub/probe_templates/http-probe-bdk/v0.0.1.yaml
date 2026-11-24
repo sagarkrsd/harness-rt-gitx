@@ -1,0 +1,24 @@
+hubIdentity: gitxacclevelhub
+identity: http-probe-bdk
+name: new-http-probe-bdk
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: http://localhost:8080
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 10s
+  type: httpProbe
+versionLabel: v0.0.1
