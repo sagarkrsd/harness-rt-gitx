@@ -1,0 +1,20 @@
+hubIdentity: orglevelgitxhub
+identity: org-custom-script-action-22i
+name: org-custom-script-action-22i
+orgIdentifier: default
+spec:
+  actionProperties:
+    customScriptAction:
+      args:
+      - -c
+      - echo "HELLO WORLD"
+      command: /bin/sh
+  infrastructureType: Kubernetes
+  runProperties:
+    initialDelay: 5s
+    interval: 2s
+    iterations: 1
+    maxRetries: 1
+    timeout: 10s
+  type: customScript
+versionLabel: v1
