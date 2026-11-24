@@ -1,0 +1,26 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitxacclevelhub
+identity: branchingtesttemp
+kind: ChaosExperimentTemplate
+name: branching-test-temp
+spec:
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: branch-fault-temp
+    isEnterprise: false
+    name: branch-fault-temp-dm0
+    values: []
+  infraType: KubernetesV2
+  vertices:
+  - end: {}
+    name: v-dmx
+    start:
+      faults:
+      - name: branch-fault-temp-dm0
+  - end:
+      faults:
+      - name: branch-fault-temp-dm0
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
