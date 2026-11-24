@@ -1,0 +1,34 @@
+hubIdentity: gitxacclevelhub
+identity: gitx-fault-custom
+name: gitx-fault-custom
+spec:
+  category:
+  - Kubernetes
+  infras:
+  - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
+  spec:
+    chaos:
+      faultName: byoc-injector
+      kubernetes:
+        args:
+        - echo "HELLO FROM CUSTOM GITX FAULT"
+        command:
+        - /bin/sh
+        - -c
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: bitnami/kubectl:latest
+        imagePullPolicy: Always
+        resourceRequirements: {}
+      params:
+      - name: CHAOS_DURATION
+        value: 30s
+  type: Custom
+versionLabel: v2
