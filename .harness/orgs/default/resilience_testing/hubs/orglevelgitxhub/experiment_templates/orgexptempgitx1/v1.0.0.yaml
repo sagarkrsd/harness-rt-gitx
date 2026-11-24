@@ -1,0 +1,71 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: orglevelgitxhub
+identity: orgexptempgitx1
+kind: ChaosExperimentTemplate
+name: org-exp-temp-gitx-1
+orgIdentifier: default
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: org-custom-script-action-22i
+    isEnterprise: false
+    name: org-custom-script-action-22i-8fv
+    values: []
+  - continueOnCompletion: false
+    identity: org-custom-script-action-22i
+    isEnterprise: false
+    name: org-custom-script-action-22i-ks3
+    values: []
+    versionLabel: 23-11
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: pod-cpu-hog
+    isEnterprise: true
+    name: pod-cpu-hog-iwa
+    values:
+    - name: TARGET_WORKLOAD_KIND
+      value: deployment
+    - name: TARGET_WORKLOAD_NAMESPACE
+      value: <+input>
+    - name: TARGET_WORKLOAD_NAMES
+      value: <+input>
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: org-level-cmd-probe-m23
+    isEnterprise: false
+    name: org-level-cmd-probe-m23-yzp
+    values: []
+    versionLabel: v1
+    weightage: 10
+  - duration: 30s
+    identity: org-gitx-http-probe-rnw
+    isEnterprise: false
+    name: org-gitx-http-probe-rnw-ubu
+    values: []
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-ix3
+    start:
+      actions:
+      - name: org-custom-script-action-22i-8fv
+      - name: org-custom-script-action-22i-ks3
+      faults:
+      - name: pod-cpu-hog-iwa
+      probes:
+      - name: org-level-cmd-probe-m23-yzp
+      - name: org-gitx-http-probe-rnw-ubu
+  - end:
+      actions:
+      - name: org-custom-script-action-22i-8fv
+      - name: org-custom-script-action-22i-ks3
+      faults:
+      - name: pod-cpu-hog-iwa
+      probes:
+      - name: org-level-cmd-probe-m23-yzp
+      - name: org-gitx-http-probe-rnw-ubu
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
