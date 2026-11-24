@@ -1,0 +1,32 @@
+template:
+  name: pipeline cross branch template
+  identifier: pipeline_cross_branch_template
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: cross branch
+          identifier: cross_branch
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: v1-main
+                    identifier: v1main
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      versionLabel: v1
+                - step:
+                    name: v2-main-1017
+                    identifier: v2main1017
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      versionLabel: v2
+                      gitBranch: main-1017
+          tags: {}
