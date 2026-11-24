@@ -1,0 +1,12 @@
+hubIdentity: demoremoterthub2211
+identity: delay-action-qd8
+name: new-delay-action-qd8
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: inline-version
