@@ -1,0 +1,49 @@
+template:
+  name: pipeline non default cross branch
+  identifier: pipeline_non_default_cross_branch
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: custom
+          identifier: custom
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: v2-main-1017
+                    identifier: v2main1017
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      versionLabel: v2
+                - step:
+                    name: v1
+                    identifier: v1
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      versionLabel: v1
+                - step:
+                    name: v1-main
+                    identifier: v1main
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      versionLabel: v1
+                      gitBranch: main
+                - step:
+                    name: always stable
+                    identifier: always_stable
+                    template:
+                      templateRef: step_template_cross_branch_test
+                - step:
+                    name: always use stable on main
+                    identifier: always_use_stable_on_main
+                    template:
+                      templateRef: step_template_cross_branch_test
+                      gitBranch: main
+          tags: {}
