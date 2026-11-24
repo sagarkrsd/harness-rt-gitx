@@ -1,0 +1,24 @@
+hubIdentity: gitxacclevelhub
+identity: delay-action-aln
+name: new-delay-action-aln
+spec:
+  actionProperties:
+    delayAction:
+      duration: <+input>
+  infrastructureType: Kubernetes
+  inputs:
+  - allowedValues: null
+    category: ""
+    default: null
+    description: ""
+    name: DURATION
+    path: .actionProperties.delayAction.duration
+    required: true
+    stringify: false
+    tags: null
+    tooltipId: ""
+    type: String
+    validator: ""
+    value: <+input>
+  type: delay
+versionLabel: v11
