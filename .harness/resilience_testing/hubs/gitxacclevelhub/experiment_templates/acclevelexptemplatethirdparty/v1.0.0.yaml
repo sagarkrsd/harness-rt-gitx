@@ -1,0 +1,48 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitxacclevelhub
+identity: acclevelexptemplatethirdparty
+kind: ChaosExperimentTemplate
+name: acc-level-exp-template-third-party
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: delay-action-y3o
+    isEnterprise: false
+    name: delay-action-y3o-0ws
+    values: []
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: gitx-fault-custom
+    isEnterprise: false
+    name: gitx-fault-custom-ndq
+    values: []
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: http-probe-bdk
+    isEnterprise: false
+    name: http-probe-bdk-v4f
+    values: []
+    versionLabel: v0.0.1
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-nem
+    start:
+      actions:
+      - name: delay-action-y3o-0ws
+      faults:
+      - name: gitx-fault-custom-ndq
+      probes:
+      - name: http-probe-bdk-v4f
+  - end:
+      actions:
+      - name: delay-action-y3o-0ws
+      faults:
+      - name: gitx-fault-custom-ndq
+      probes:
+      - name: http-probe-bdk-v4f
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
