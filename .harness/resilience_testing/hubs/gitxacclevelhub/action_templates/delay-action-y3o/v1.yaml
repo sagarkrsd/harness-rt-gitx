@@ -1,0 +1,10 @@
+hubIdentity: gitxacclevelhub
+identity: delay-action-y3o
+name: new-delay-action-y3o
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: v1
