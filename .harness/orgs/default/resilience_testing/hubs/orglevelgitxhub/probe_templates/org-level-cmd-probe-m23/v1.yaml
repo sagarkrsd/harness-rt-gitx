@@ -1,0 +1,22 @@
+hubIdentity: orglevelgitxhub
+identity: org-level-cmd-probe-m23
+name: org-level-cmd-probe-m23
+orgIdentifier: default
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    cmdProbe:
+      command: echo "Hello World V1 - org"
+      comparator:
+        criteria: matches
+        type: string
+        value: Hello World V1 - org
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 10s
+    verbosity: debug
+  type: cmdProbe
+versionLabel: v1
