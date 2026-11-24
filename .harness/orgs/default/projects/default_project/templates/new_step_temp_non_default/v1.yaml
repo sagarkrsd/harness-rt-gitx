@@ -1,0 +1,21 @@
+template:
+  name: new step temp non default
+  identifier: new_step_temp_non_default
+  versionLabel: v1
+  type: Step
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      executionTarget: {}
+      delegateSelectors: []
+      source:
+        type: Inline
+        spec:
+          script: echo
+      environmentVariables: []
+      outputVariables: []
