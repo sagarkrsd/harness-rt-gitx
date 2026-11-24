@@ -1,0 +1,29 @@
+hubIdentity: demoremoterthub2211
+identity: container-action-0yv
+name: new-container-action-0yv
+orgIdentifier: default
+projectIdentifier: default_project
+spec:
+  actionProperties:
+    containerAction:
+      args: echo "Hello World"
+      command:
+      - /bin/sh
+      - -c
+      env: null
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      image: bitnami/kubectl:latest
+      imagePullPolicy: IfNotPresent
+      namespace: ""
+      serviceAccountName: default
+  infrastructureType: Kubernetes
+  runProperties:
+    initialDelay: 5s
+    interval: 2s
+    iterations: 1
+    maxRetries: 1
+    timeout: 10s
+  type: container
+versionLabel: v0.0.1
