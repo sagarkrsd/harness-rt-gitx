@@ -1,0 +1,29 @@
+hubIdentity: gitxacclevelhub
+identity: inline-to-git-fault-temp
+name: inline-to-git-fault-temp
+spec:
+  category:
+  - Kubernetes
+  infraType: Kubernetes
+  infras:
+  - KubernetesV2
+  links:
+  - name: Permissions
+    url: ""
+  permissionsRequired: Basic
+  spec:
+    chaos:
+      faultName: byoc-injector
+      kubernetes:
+        containerSecurityContext:
+          capabilities: {}
+        hostIPC: false
+        hostNetwork: false
+        hostPID: false
+        image: bitnami/kubectl:latest
+        resourceRequirements: {}
+      params:
+      - name: CHAOS_DURATION
+        value: 30s
+  type: Custom
+versionLabel: v1
