@@ -7,7 +7,7 @@ spec:
   actionProperties:
     containerAction:
       affinity: {}
-      args: echo "Hello World version 2"
+      args: echo "Hello World version 3 - updated in git"
       command:
       - /bin/sh
       - -c
