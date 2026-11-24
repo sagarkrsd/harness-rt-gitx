@@ -1,0 +1,11 @@
+hubIdentity: orglevelgitxhub
+identity: org-delay-action-d9r
+name: org-delay-action-d9r
+orgIdentifier: default
+spec:
+  actionProperties:
+    delayAction:
+      duration: 5s
+  infrastructureType: Kubernetes
+  type: delay
+versionLabel: new-version
