@@ -17,6 +17,11 @@ spec:
     isEnterprise: false
     name: gitx-fault-custom-ndq
     values: []
+  - authEnabled: false
+    identity: inline-to-git-fault-temp
+    isEnterprise: false
+    name: inline-to-git-fault-temp-cix
+    values: []
   infraType: KubernetesV2
   probes:
   - duration: 30s
@@ -33,6 +38,7 @@ spec:
       - name: delay-action-y3o-0ws
       faults:
       - name: gitx-fault-custom-ndq
+      - name: inline-to-git-fault-temp-cix
       probes:
       - name: http-probe-bdk-v4f
   - end:
@@ -40,6 +46,7 @@ spec:
       - name: delay-action-y3o-0ws
       faults:
       - name: gitx-fault-custom-ndq
+      - name: inline-to-git-fault-temp-cix
       probes:
       - name: http-probe-bdk-v4f
     name: v-end
