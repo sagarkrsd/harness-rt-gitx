@@ -1,0 +1,48 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitxacclevelhub
+identity: exptemptest1
+kind: ChaosExperimentTemplate
+name: exp-temp-test-1
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: delay-action-lyr
+    isEnterprise: false
+    name: delay-action-lyr-pec
+    values: []
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: fault-branch-test
+    isEnterprise: false
+    name: fault-branch-test-dwz
+    values: []
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: http-probe-36m
+    isEnterprise: false
+    name: http-probe-36m-3lf
+    values: []
+    versionLabel: v0.0.1
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-dy1
+    start:
+      actions:
+      - name: delay-action-lyr-pec
+      faults:
+      - name: fault-branch-test-dwz
+      probes:
+      - name: http-probe-36m-3lf
+  - end:
+      actions:
+      - name: delay-action-lyr-pec
+      faults:
+      - name: fault-branch-test-dwz
+      probes:
+      - name: http-probe-36m-3lf
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
