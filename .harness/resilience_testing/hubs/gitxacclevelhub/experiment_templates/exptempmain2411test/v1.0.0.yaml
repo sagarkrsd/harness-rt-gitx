@@ -1,0 +1,48 @@
+apiVersion: litmuschaos.io/v1beta1
+hubIdentity: gitxacclevelhub
+identity: exptempmain2411test
+kind: ChaosExperimentTemplate
+name: exp-temp-main-2411-test
+spec:
+  actions:
+  - continueOnCompletion: false
+    identity: delay-action-mlz
+    isEnterprise: false
+    name: delay-action-mlz-2tn
+    values: []
+  cleanupPolicy: delete
+  faults:
+  - authEnabled: false
+    identity: fault-main-2411
+    isEnterprise: false
+    name: fault-main-2411-21o
+    values: []
+  infraType: KubernetesV2
+  probes:
+  - duration: 30s
+    identity: cross-branch-http-probe-6hm
+    isEnterprise: false
+    name: cross-branch-http-probe-6hm-r70
+    values: []
+    versionLabel: v1.0.0
+    weightage: 10
+  vertices:
+  - end: {}
+    name: v-22x
+    start:
+      actions:
+      - name: delay-action-mlz-2tn
+      faults:
+      - name: fault-main-2411-21o
+      probes:
+      - name: cross-branch-http-probe-6hm-r70
+  - end:
+      actions:
+      - name: delay-action-mlz-2tn
+      faults:
+      - name: fault-main-2411-21o
+      probes:
+      - name: cross-branch-http-probe-6hm-r70
+    name: v-end
+    start: {}
+versionLabel: v1.0.0
