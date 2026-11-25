@@ -1,0 +1,25 @@
+hubIdentity: gitxacclevelhub
+identity: http-probe-36m
+name: new-http-probe-36m
+spec:
+  infrastructureType: Kubernetes
+  probeProperties:
+    httpProbe:
+      method:
+        get:
+          criteria: ==
+          responseCode: "200"
+      tlsConfig:
+        caFile: ""
+        certFile: ""
+        keyFile: ""
+      url: https://www.google.com
+  runProperties:
+    attempt: 1
+    initialDelay: 5s
+    interval: 2s
+    pollingInterval: 30s
+    timeout: 10s
+    verbosity: info
+  type: httpProbe
+versionLabel: v0.0.1
